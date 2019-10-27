@@ -30,6 +30,7 @@
     "passport-local": "^1.0.0",
     "pug": "^2.0.3",
     "tslib": "^1.9.3",
+    "ts-node": "^5.0.1",
     "validator": "^11.0.0"
   },
   "devDependencies": {
@@ -52,7 +53,6 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
     "ts-loader": "^6.0.0",
-    "ts-node": "^5.0.1",
     "typescript": "^3.4.5"
   }
 }
