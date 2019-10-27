@@ -1,0 +1,6 @@
+mixin flash(messages)
+    if typeof messages === 'string'
+        div= messages
+    else
+        for message in messages
+            div= message

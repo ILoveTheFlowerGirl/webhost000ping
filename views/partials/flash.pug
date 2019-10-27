@@ -1,0 +1,16 @@
+if messages
+    if messages.errors && messages.errors.length > 0
+        .alert.alert-danger.fade.show
+            button.close(type='button', data-dismiss='alert')
+                i.fa.fa-times-circle-o
+            +flash(messages.errors)
+    if messages.info && messages.info.length > 0
+        .alert.alert-info.fade.show
+            button.close(type='button', data-dismiss='alert')
+                i.fa.fa-times-circle-o
+            +flash(messages.info)
+    if messages.success && messages.success.length > 0
+        .alert.alert-success.fade.show
+            button.close(type='button', data-dismiss='alert')
+                i.fa.fa-times-circle-o
+            +flash(messages.success)

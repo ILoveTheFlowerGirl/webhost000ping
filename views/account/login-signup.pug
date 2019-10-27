@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+    // ---- Include the above in your HEAD tag --------
+    .container.login-container
+        .row
+            - let style1 = isLogin ? 'display:block' : 'display:none'
+            .col-md-6.offset-3.login-form-1(style=style1)
+                h3 Login
+                form(method='POST', action='/login', enctype="application/x-www-form-urlencoded", name='login')
+                    .form-group
+                        input.form-control(name='username', type='text', placeholder='Your Username *', value='')
+                    .form-group
+                        input.form-control(name='password', type='password', placeholder='Your Password *', value='')
+                    .form-group
+                        input.btnSubmit(type='submit', value='Login')
+                    .form-group
+                        a.ForgetPwd(href='#') Create an account
+            - let style2 = isLogin ? 'display:none' : 'display:block'
+            .col-md-6.offset-3.login-form-2(style=style2)
+                h3 Register
+                form(method='POST', action='/signup', enctype="application/x-www-form-urlencoded", name='signup')
+                    .form-group
+                        input.form-control(name='username', type='text', placeholder='Your Username *', value='')
+                    .form-group
+                        input.form-control(name='password', type='password', placeholder='Your Password *', value='')
+                    .form-group
+                        input.btnSubmit(type='submit', value='Register')
+                    .form-group
+                        a.ForgetPwd(href='#', value='Login') Login
+    script.
+        document.addEventListener("DOMContentLoaded", function (event) {
+            const loginForm = document.querySelector('.login-container .login-form-1')
+            const registerForm = document.querySelector('.login-container .login-form-2')
+            const onToggleClick = function (e) {
+                e.preventDefault()
+                if (loginForm.style.display === "none") {
+                    window.history.pushState({}, 'Login', '/login')
+                    loginForm.style.display = "block";
+                    registerForm.style.display = "none";
+                } else {
+                    window.history.pushState({}, 'Signup', '/signup')
+                    registerForm.style.display = "block";
+                    loginForm.style.display = "none";
+                }
+            }
+            document.querySelector('.login-container .login-form-1 .ForgetPwd').onclick = onToggleClick
+            document.querySelector('.login-container .login-form-2 .ForgetPwd').onclick = onToggleClick
+        })
+
+
