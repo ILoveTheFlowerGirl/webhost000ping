@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "nodemon": "nodemon --experimental-modules dist/server.js",
-    "start": "ts-node src/server.ts",
     "tsnode": "ts-node src/server.ts"
   },
   "dependencies": {
