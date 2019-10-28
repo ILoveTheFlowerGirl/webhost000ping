@@ -33,6 +33,6 @@ const _000webhostSchema = new mongoose.Schema({
     end_sleep: {type: String, trim: true},
     name: {type: String, trim: true},
     ver: {type: String, trim: true}
-}, { collection: '000webhost' });
+}, { collection: '000webhost', timestamps: { updatedAt: "updated_at" , createdAt: "created_at"} });
 
 export default model<_000webhostDocument>("000webhost", _000webhostSchema)
